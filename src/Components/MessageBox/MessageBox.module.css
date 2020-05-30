@@ -1,0 +1,35 @@
+.MessageBox {
+    width: 300px;
+    background-color: rgb(25, 9, 49);
+    border-radius: 10px 10px 10px 0;
+    font-size: 14px;
+    padding: 10px;
+    color:white;
+    position: relative;
+    margin-top: 10px;
+}
+
+.MessageBox__userName  {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #FFEB3B;
+}
+
+.MessageBox__date{
+    color: rgba(255, 255, 255, 0.849);
+}
+
+.MessageBox::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: -20px;
+    border-top: 20px solid transparent;
+    border-bottom: 0px solid transparent; 
+    border-right:20px solid rgb(25, 9, 49);
+}
+
+.lastItem {
+    text-align: right;
+}
