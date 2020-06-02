@@ -1,5 +1,5 @@
 .MessageBox {
-    width: 300px;
+    width: 450px;
     background-color: rgb(25, 9, 49);
     border-radius: 10px 10px 10px 0;
     font-size: 14px;
@@ -25,11 +25,32 @@
     position: absolute;
     bottom: 0px;
     left: -20px;
-    border-top: 20px solid transparent;
+    border-top: 25px solid transparent;
     border-bottom: 0px solid transparent; 
-    border-right:20px solid rgb(25, 9, 49);
+    border-right: 20px solid rgb(25, 9, 49);
 }
 
 .lastItem {
     text-align: right;
+}
+
+
+
+.MessageBox__img {
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.img {
+    width:60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 25px;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Username from "./Components/Username/Username"
 import MessageBox from "./Components/MessageBox/MessageBox";
