@@ -1,4 +1,8 @@
 .App {
+  min-height: 100vh;
   padding: 20px;
   position: relative;
+  background-color: rgb(15, 13, 31);
+  color: white;
 }
+

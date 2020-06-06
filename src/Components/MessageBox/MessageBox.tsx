@@ -1,12 +1,12 @@
 import React from 'react';
 import classes from './MessageBox.module.css';
 
-
 type MessageBoxPropsType = {
     name: string,
     messageText: string,
-    date: string,
+    date: string
 }
+
 
 const MessageBox = (props: MessageBoxPropsType) => {
     return (
