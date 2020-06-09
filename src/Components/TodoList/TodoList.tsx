@@ -30,6 +30,7 @@ function TodoList(props: TodoListPropsType) {
                <ul>
                    {tskTaks}
                </ul>
+               <button onClick={() => {props.toFilter("all")}}>all</button>
                <button onClick={() => {props.toFilter("high")}}>high</button>
                <button onClick={() => {props.toFilter("middle")}}>middle</button>
                <button onClick={() => {props.toFilter("low")}}>low</button>

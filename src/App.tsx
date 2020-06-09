@@ -46,8 +46,8 @@ function App() {
   }
 
   
-  if(filter === 'all') {
-    todolist2 = todolist;
+  if(filter === "all") {
+    todolist2 = todolist.map(item => item);
   }
 
   if(filter === "higt") {
@@ -76,7 +76,6 @@ function hello(name: string) { // здоровается с именем
       names.push({id: id, name: name});
       alert(`Hello ${name}`);
       id++;
-      console.log(names);
       
     }
 }

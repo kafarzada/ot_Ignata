@@ -14,8 +14,8 @@ function Hello(props: HelloPropsType) {
       <div>
         <input type="text" onChange={(e) => {console.log(name = e.currentTarget.value)}}/><button onClick={() => { props.hello(name); setName(name)}}>Ввести</button>
         <div>
-            {names.map(item => {
-                return <div>{item.name}</div>
+            {names.map((item, index) => {
+                return <div key={item.id}>{index}. {item.name}</div>
             })}
         </div>
       </div>
