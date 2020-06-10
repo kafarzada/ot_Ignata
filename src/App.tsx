@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
+import {v1} from 'uuid';
 import Username from "./Components/Username/Username"
 import MessageBox from "./Components/MessageBox/MessageBox";
 import TodoList from './Components/TodoList/TodoList';
 import Hello from './Components/Hello/Hello';
 
-type user = {
-  id: number,
+export type user = {
+  id: string,
   name:string
 }
-export let names:Array<user> = [] 
+
 
 function App() {
   console.log("App rendered")
@@ -23,14 +24,16 @@ function App() {
   })
 
   let [todolist, setTodolist] = useState([ // данные к 2 дз (Список дел)
-    {id: 1, todo: "Купить Молоко", priority: "middle"},
-    {id: 2, todo: "Футбол в 21:00", priority: "high"},
-    {id: 3, todo: "Починить Шкафчик", priority: "low"},
+    {id: v1(), todo: "Купить  Молоко", priority: "middle"},
+    {id: v1(), todo: "Футбол в 21:00", priority: "high"},
+    {id: v1(), todo: "Шиномонтажка", priority: "high"},
+    {id: v1(), todo: "Починить Шкафчик", priority: "low"},
+    {id: v1(), todo: "Починить Шкафчик", priority: "low"},
   ])
   let todolist2 = todolist;
 
   let [filter, setFilter] = useState("all");
-
+  let names:Array<user> = [] 
   
 
 
@@ -40,17 +43,17 @@ function App() {
     setFilter(value)
   }
 
-  function removeTask(id: number) { // метод удаления
+  function removeTask(id: string) { // метод удаления
     let f = todolist.filter(item => item.id !== id)
     setTodolist(f);
   }
 
   
   if(filter === "all") {
-    todolist2 = todolist.map(item => item);
+    todolist2 = todolist;
   }
 
-  if(filter === "higt") {
+  if(filter === "high") {
     todolist2 = todolist.filter(item => item.priority === "high");
   }
 
@@ -70,13 +73,13 @@ function App() {
 
   /*  ====================   ДЗ 3  BEGIN    ====================*/
   
-let id = 0;
+
 function hello(name: string) { // здоровается с именем
     if(name !== "") {
-      names.push({id: id, name: name});
-      alert(`Hello ${name}`);
-      id++;
-      
+      names.push({id: v1(), name: name});
+      alert(`Hello ${name}`);   
+    } else {
+      alert("Введите имя")
     }
 }
 
@@ -98,7 +101,7 @@ function hello(name: string) { // здоровается с именем
 
         {/*  ===  =================   ДЗ 3  BEGIN    ====================*/}
 
-          <Hello hello={hello}/>
+          <Hello hello={hello} names={names}/>
           
         {/*  ====================   ДЗ 3  ENG    ====================*/}
 

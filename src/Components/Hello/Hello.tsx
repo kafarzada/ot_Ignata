@@ -1,21 +1,24 @@
 import React, {useState} from 'react';
-import { names } from '../../App';
+import { user } from '../../App';
+
 
 type HelloPropsType  = {
+    names: Array<user>
     hello: (name:string) => void
 }
 
 function Hello(props: HelloPropsType) {
+    console.log("Hellp Rendered")
+    let [name, setName] = useState("");
     
-    console.log("Hello rendered")
-    let [name, setName] = useState("Alex");
     
     return (
       <div>
-        <input type="text" onChange={(e) => {console.log(name = e.currentTarget.value)}}/><button onClick={() => { props.hello(name); setName(name)}}>Ввести</button>
+        <input type="text" value={name} onChange={ (e) => setName(e.currentTarget.value) }/>
+        <button onClick={() => { props.hello(name); setName('')} }>Ввести</button>
         <div>
-            {names.map((item, index) => {
-                return <div key={item.id}>{index}. {item.name}</div>
+            {props.names.map((item, index) => {
+                return <div key={item.id}>{1 + index}. {item.name}</div>
             })}
         </div>
       </div>
