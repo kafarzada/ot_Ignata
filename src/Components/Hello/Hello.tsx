@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { user } from '../../App';
+import InputNya from '../InputNya/InputNya';
+import ButtonNya from '../ButtonNya/ButtonNya';
 
 
 type HelloPropsType  = {
@@ -14,8 +16,8 @@ function Hello(props: HelloPropsType) {
     
     return (
       <div>
-        <input type="text" value={name} onChange={ (e) => setName(e.currentTarget.value) }/>
-        <button onClick={() => { props.hello(name); setName('')} }>Ввести</button>
+        <InputNya type="text" value={name} onChange={ (e) => setName(e.currentTarget.value) }/>
+        <ButtonNya onClick={() => { props.hello(name); setName('')} }>Ввести</ButtonNya>
         <div>
             {props.names.map((item, index) => {
                 return <div key={item.id}>{1 + index}. {item.name}</div>

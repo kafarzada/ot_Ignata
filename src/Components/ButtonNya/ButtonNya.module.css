@@ -1,0 +1,15 @@
+.buttonNya {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px ;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.buttonNya:active {
+    transform: scale(0.9);
+}

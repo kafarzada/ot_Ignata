@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import './App.css';
 import {v1} from 'uuid';
 import Username from "./Components/Username/Username"
@@ -13,7 +13,6 @@ export type user = {
 
 
 function App() {
-  console.log("App rendered")
 
   let messages = [ //данные к 1 дз (MessageBox)
     {name :"Иван", messageText:"Lorem ipsum dolor sit=lectus quidem quis quam corporis rem laborum. Dolore sed aveniet culpa nemo veritatis tempore!", date:"12:43"},
@@ -74,7 +73,7 @@ function App() {
   /*  ====================   ДЗ 3  BEGIN    ====================*/
   
 
-function hello(name: string) { // здоровается с именем
+function hello(name: string) { // добавляем веденное имя в массив
     if(name !== "") {
       names.push({id: v1(), name: name});
       alert(`Hello ${name}`);   
@@ -107,9 +106,7 @@ function hello(name: string) { // здоровается с именем
 
     </div>
   );
+};
 
-
-  
-}
 
 export default App;
