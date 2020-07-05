@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "551c265e7c435db39124b507f541606e",
+    "revision": "61146969eefbd1b9acc686debf3c55e8",
     "url": "/ot_Ignata/index.html"
   },
   {
-    "revision": "3da43e674c886bbc46c9",
-    "url": "/ot_Ignata/static/css/main.65a15d31.chunk.css"
+    "revision": "d75288c09bdd1ac3225e",
+    "url": "/ot_Ignata/static/css/main.e3b489aa.chunk.css"
   },
   {
     "revision": "6cd09a704929f3b06f8e",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ot_Ignata/static/js/2.e5c8ea65.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3da43e674c886bbc46c9",
-    "url": "/ot_Ignata/static/js/main.7d64f05e.chunk.js"
+    "revision": "d75288c09bdd1ac3225e",
+    "url": "/ot_Ignata/static/js/main.1a04a37f.chunk.js"
   },
   {
     "revision": "4b697f86a286ae363e7c",

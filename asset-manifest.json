@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ot_Ignata/static/css/main.65a15d31.chunk.css",
-    "main.js": "/ot_Ignata/static/js/main.7d64f05e.chunk.js",
-    "main.js.map": "/ot_Ignata/static/js/main.7d64f05e.chunk.js.map",
+    "main.css": "/ot_Ignata/static/css/main.e3b489aa.chunk.css",
+    "main.js": "/ot_Ignata/static/js/main.1a04a37f.chunk.js",
+    "main.js.map": "/ot_Ignata/static/js/main.1a04a37f.chunk.js.map",
     "runtime-main.js": "/ot_Ignata/static/js/runtime-main.8b9aa407.js",
     "runtime-main.js.map": "/ot_Ignata/static/js/runtime-main.8b9aa407.js.map",
     "static/js/2.e5c8ea65.chunk.js": "/ot_Ignata/static/js/2.e5c8ea65.chunk.js",
     "static/js/2.e5c8ea65.chunk.js.map": "/ot_Ignata/static/js/2.e5c8ea65.chunk.js.map",
     "index.html": "/ot_Ignata/index.html",
-    "precache-manifest.1fd06c0999c35890f7427f9287d33517.js": "/ot_Ignata/precache-manifest.1fd06c0999c35890f7427f9287d33517.js",
+    "precache-manifest.5f8dab95d5f9c76808d8a7c12463cddf.js": "/ot_Ignata/precache-manifest.5f8dab95d5f9c76808d8a7c12463cddf.js",
     "service-worker.js": "/ot_Ignata/service-worker.js",
-    "static/css/main.65a15d31.chunk.css.map": "/ot_Ignata/static/css/main.65a15d31.chunk.css.map",
+    "static/css/main.e3b489aa.chunk.css.map": "/ot_Ignata/static/css/main.e3b489aa.chunk.css.map",
     "static/js/2.e5c8ea65.chunk.js.LICENSE.txt": "/ot_Ignata/static/js/2.e5c8ea65.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8b9aa407.js",
     "static/js/2.e5c8ea65.chunk.js",
-    "static/css/main.65a15d31.chunk.css",
-    "static/js/main.7d64f05e.chunk.js"
+    "static/css/main.e3b489aa.chunk.css",
+    "static/js/main.1a04a37f.chunk.js"
   ]
 }
