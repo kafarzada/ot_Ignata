@@ -20,8 +20,8 @@ function App() {
       <div className="App">
         <Navbar />
         <div className={"container"}>
-        <Route path={"/prejunior"} component={PreJunior}/>
-        <Route path={'/junior'} component={Junior} />
+          <Route path={"/prejunior"} component={PreJunior}/>
+          <Route path={'/junior'} component={Junior} />
         </div>
       </div>
     </HashRouter>
