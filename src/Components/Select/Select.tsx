@@ -2,26 +2,28 @@ import React, { useState } from 'react';
 import s from './Select.module.css';
 
 type SelectPropsType = {
-    value: Array<string>
+    list: Array<string>
+    selectvalue: string
+    onChange: (value: string) => void
 }
 
 const Select = (props: SelectPropsType) => {
     console.log('selected rendered');
     
     let [activeList, setActiveList ] = useState<boolean>(false)
-    let [value, setValue] = useState<string>(props.value[0]);
     const onClickListHandler = () => {
         setActiveList(true)
     }
     const selectItemHandler = (value:string) => {
         setActiveList(false)
-        setValue(value)
+        props.onChange(value)
     }
 
 
-    const listOptions = props.value.map(item => {
+    const listOptions = props.list.map((item, index) => {
         return (
             <Option 
+                key={index}
                 value={item}
                 selectHandler={selectItemHandler}
             />
@@ -35,7 +37,7 @@ const Select = (props: SelectPropsType) => {
 
     return (
         <div>
-           <input type="text" value={value}/>
+           <input type="text" value={props.selectvalue}/>
            <button onClick={onClickListHandler}>list</button>
            <div style={listStype}>
                 {listOptions}
