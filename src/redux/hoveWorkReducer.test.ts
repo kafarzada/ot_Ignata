@@ -7,7 +7,6 @@ test('sorting objects in ascending order in the state', () => {
         {id: v1(), name: "Aidan",age: 21},
         {id: v1(), name: "Henry ",age: 60},
     ]
-
     const endState = hwReducer(startState, {type: 'SORT', payload: "up"});
     expect(endState[0].name).toBe("Aidan");
 });
@@ -19,7 +18,6 @@ test('sorting objects by washing in the state', () => {
         {id: v1(), name: "Zeros",age: 21},
         {id: v1(), name: "Henry ",age: 60},
     ]
-
     const endState = hwReducer(startState, {type: 'SORT', payload: "down"});
     expect(endState[0].name).toBe("Zeros");
 });
@@ -31,9 +29,7 @@ test('an array of people who turned 18', () => {
         {id: v1(), name: "Zeros",age: 14},
         {id: v1(), name: "Henry",age: 18},
     ]
-
     const endState = hwReducer(startState, {type: 'CHECK', payload: 18});
     expect(endState[0].age >= 18).toBe(true);
     expect(endState.length).toBe(2)
 });
-

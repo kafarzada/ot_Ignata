@@ -1,4 +1,3 @@
-
 export const hwReducer = (state:Array<{id: string, name: string, age: number}>, action: {type: string, payload:any}) => {
     switch (action.type) {
         case 'SORT':    
@@ -22,6 +21,6 @@ export const hwReducer = (state:Array<{id: string, name: string, age: number}>, 
         case "CHECK":
             return state.filter(item => item.age >= action.payload);
         default:
-                return state;
+            return state;
     }
 }

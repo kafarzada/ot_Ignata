@@ -5,21 +5,18 @@ type SelectPropsType = {
     list: Array<string>
     selectvalue: string
     onChange: (value: string) => void
+    active: boolean
+    setActiveList: (value: boolean) => void
 }
 
 const Select = (props: SelectPropsType) => {
-    console.log('selected rendered');
-    
-    let [activeList, setActiveList ] = useState<boolean>(false)
     const onClickListHandler = () => {
-        setActiveList(true)
-    }
+        props.setActiveList(!props.active)
+}
     const selectItemHandler = (value:string) => {
-        setActiveList(false)
+        props.setActiveList(false)
         props.onChange(value)
     }
-
-
     const listOptions = props.list.map((item, index) => {
         return (
             <Option 
@@ -32,7 +29,7 @@ const Select = (props: SelectPropsType) => {
 
 
     let listStype  = {
-         display: activeList ? 'block' : 'none'
+         display: props.active ? 'block' : 'none'
     }
 
     return (
