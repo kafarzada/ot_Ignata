@@ -52,15 +52,20 @@ function Junior() {
 
     // ДЗ N8 
     let[users, setUsers] = useState<Array<UserListType>>([
-        {id: v1(), name: "Thomas",age: 23},
+        {id: v1(), name: "Isobelle",age: 23},
         {id: v1(), name: "Aidan",age: 21},
-        {id: v1(), name: "Henry ",age: 60},
+        {id: v1(), name: "Henry",age: 60},
+        {id: v1(), name: "Eliza",age: 19},
+        {id: v1(), name: "Alice",age: 25},
     ]);
 
-    const onClickSortHandler = () => {
-        setUsers(hwReducer(users, {type: 'SORT', payload: 'down'}))
-        debugger
+    const onClickSortHandler = (s: string) => {
+        let sortedList = hwReducer(users, {type: 'SORT', payload: s});
+        setUsers([...sortedList])
     }
+
+    const renderedUsers = users.map((item, index) => <li key={index}>{item.name}</li>)
+    
     // ДЗ N8 
 
     return (
@@ -74,15 +79,10 @@ function Junior() {
             <div>
                 <label>Список</label>
                 <ul>
-                    {
-                        users.map(item => {
-                            return (
-                                <li>{item.name}</li>
-                            )
-                        })
-                    }
+                    {renderedUsers}
                 </ul>
-                <ButtonNya onClick={onClickSortHandler}>Сортировать</ButtonNya>
+                <ButtonNya onClick={() => {onClickSortHandler("up")}}>от А до Z</ButtonNya>
+                <ButtonNya onClick={() => {onClickSortHandler("down")}}>от Z до A</ButtonNya>
             </div>
         </div>
     )
