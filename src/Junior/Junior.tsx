@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import s from './Junior.module.css'
 import Editable from '../Components/Common/Editable';
 import ButtonNya from '../Components/ButtonNya/ButtonNya';
 import { restore, saveState } from '../localStorage_functions';
@@ -6,6 +7,7 @@ import Select from '../Components/Select/Select';
 import Radio from '../Components/Common/Radio';
 import { v1 } from 'uuid';
 import { hwReducer } from '../redux/homeWorkReducer';
+import DateViewer from '../Components/DateViewer/DateViewer';
 
 
 type UserListType = {
@@ -26,16 +28,13 @@ function Junior() {
 
 
     // ДЗ N7 (begin) SELECT
-    let [selectValue, setSelectValue] = useState<string>('')
-    let [activeList, setActiveList ] = useState<boolean>(false)
-    const fruits = [ // для компонента select
-        "apple",
-        "oranges",
-        "pears"
+    let [selectedValue, setSelectedValue] = useState<string>('')
+    const cityes = [ // для компонента select
+        {id: v1(), value: "Moscow"},
+        {id: v1(), value: "London"},
+        {id: v1(), value: "Paris"},
     ]
-    const OnChangeSelecthandler = (value:string) => {
-        setSelectValue(value)
-    }
+
     // (end)
 
 
@@ -65,15 +64,37 @@ function Junior() {
     }
 
     const renderedUsers = users.map((item, index) => <li key={index}>{item.name}</li>)
-    
-    // ДЗ N8 
+    // ДЗ (end) N8 
 
+    // ДЗ (begin) n9
+    const [date, setDate] = useState(new Date());
+    const [timerID, setTimerId] = useState(setTimeout(() => {
+        setDate(new Date())
+    }, 1000))
+    let [dataViewerActive, setdataViewerActive] = useState(false)
+    const dateOnClickHandler = () => {
+        clearInterval(timerID);
+        const timer_id = setInterval(() => setDate(new Date()), 1000);
+        setTimerId(timer_id);
+    }
+
+    const stopDateClickHandler = () => {
+        clearInterval(timerID)
+        console.log('asd');
+        
+    }
+    const dateShowMouseEnterHandler = () => {
+        setdataViewerActive(true)
+    }
+    const dateHadeMouseOutHandler = () => {
+        setdataViewerActive(false)
+    }
     return (
         <div>
             <Editable editMode={editMode} setEditMode={setEditMode} inputValue={inputValue} setInputValue={setInputValue}/>
             <ButtonNya onClick={onClickSaveHandler} >save</ButtonNya>
             <ButtonNya onClick={onClickRestoreHandler} >restore</ButtonNya>
-            <Select list={fruits} selectvalue={selectValue} onChange={OnChangeSelecthandler} active={activeList} setActiveList={setActiveList}/>
+            <Select value={selectedValue} values={cityes} onChange={setSelectedValue}/>
             <Radio value={radioValue} radioValues={gender} name={"gender"} onChange={onChangeRadiovalue}/>
 
             <div>
@@ -83,6 +104,17 @@ function Junior() {
                 </ul>
                 <ButtonNya onClick={() => {onClickSortHandler("up")}}>от А до Z</ButtonNya>
                 <ButtonNya onClick={() => {onClickSortHandler("down")}}>от Z до A</ButtonNya>
+            </div>
+
+
+            <div>
+                <div onMouseEnter={dateShowMouseEnterHandler} onMouseLeave={dateHadeMouseOutHandler} className={s.date}>
+                    {`${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`}
+                    <DateViewer date={`${date.getDay()} : ${date.getMonth()} : ${date.getFullYear()}`} show={dataViewerActive}/>
+                </div>
+                <ButtonNya onClick={dateOnClickHandler}>Время</ButtonNya>
+                <ButtonNya onClick={stopDateClickHandler}>Остановить Время</ButtonNya>
+                
             </div>
         </div>
     )

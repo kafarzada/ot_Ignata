@@ -1,57 +1,29 @@
-import React, { useState } from 'react';
-import s from './Select.module.css';
+import React from 'react';
 
-type SelectPropsType = {
-    list: Array<string>
-    selectvalue: string
-    onChange: (value: string) => void
-    active: boolean
-    setActiveList: (value: boolean) => void
-}
-
-const Select = (props: SelectPropsType) => {
-    const onClickListHandler = () => {
-        props.setActiveList(!props.active)
-}
-    const selectItemHandler = (value:string) => {
-        props.setActiveList(false)
-        props.onChange(value)
-    }
-    const listOptions = props.list.map((item, index) => {
-        return (
-            <Option 
-                key={index}
-                value={item}
-                selectHandler={selectItemHandler}
-            />
-        )
-    })
-
-
-    let listStype  = {
-         display: props.active ? 'block' : 'none'
-    }
-
-    return (
-        <div>
-           <input type="text" value={props.selectvalue}/>
-           <button onClick={onClickListHandler}>list</button>
-           <div style={listStype}>
-                {listOptions}
-           </div>
-        </div>
-    )
-}
-
-type OptionPropsType = {
+type optionType = {
+    id: string;
     value: string
-    selectHandler: (value:string) => void
-}
-const Option = (props: OptionPropsType) => {
-    return (
-        <div className={s.option} onClick={() => props.selectHandler(props.value) }>{props.value}</div>
-    )
 }
 
+type SelectType = {
+    value: string
+    values: Array<optionType>
+    onChange: (value: string) => void
+}
+
+const Select = (props: SelectType) => {
+    const options = props.values.map((item, index) => {
+
+         return <option key={index}
+                        value={item.id}
+                        onClick={() => alert('asd')}
+                        >{item.value}</option> 
+    })
+    return (
+        <select value={props.value}>
+            {options}
+        </select>
+    )
+}
 
 export default Select;
