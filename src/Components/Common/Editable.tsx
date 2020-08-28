@@ -8,7 +8,7 @@ type EditableType = {
     inputValue: string
 }
 
-const Editable = (props: EditableType) => {
+const EditableTemporary = (props: EditableType) => {
     const onEditMode = ()=> {props.setEditMode(true)}
     const offEditMode = ()=> {props.setEditMode(false);}
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=> {props.setInputValue(e.currentTarget.value)}
@@ -29,5 +29,5 @@ const Editable = (props: EditableType) => {
         </div>
     )
 }
-
+const Editable = React.memo(EditableTemporary)
 export default Editable;

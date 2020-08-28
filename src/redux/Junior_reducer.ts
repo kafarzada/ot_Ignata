@@ -29,7 +29,7 @@ let initialState:StateType = {
     sound: {
         minValue: 1,
         maxValue: 100,
-        currentValue: 20
+        currentValue: 1
     }
 }
 

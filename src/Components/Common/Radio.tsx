@@ -8,7 +8,7 @@ type PropsType = {
 }
 
 
-const Radio = (props: PropsType) => {
+const RadioTemporary = (props: PropsType) => {
 
     
 
@@ -30,4 +30,5 @@ const Radio = (props: PropsType) => {
     )
 }
 
+const Radio = React.memo(RadioTemporary)
 export default Radio
