@@ -8,6 +8,8 @@ import Radio from '../Components/Common/Radio';
 import { v1 } from 'uuid';
 import { hwReducer } from '../redux/homeWorkReducer';
 import DateViewer from '../Components/DateViewer/DateViewer';
+import Preloader from '../Components/Preloader/Preloader';
+import { PreloaderComponent } from '../Components/Preloader/PreloaderContainer';
 
 
 type UserListType = {
@@ -68,14 +70,12 @@ function Junior() {
 
     // ДЗ (begin) n9
     const [date, setDate] = useState(new Date());
-    const [timerID, setTimerId] = useState(setTimeout(() => {
-        setDate(new Date())
-    }, 1000))
+    const [timerID, setTimerId] = useState<number>()
     let [dataViewerActive, setdataViewerActive] = useState(false)
     const dateOnClickHandler = () => {
         clearInterval(timerID);
-        const timer_id = setInterval(() => setDate(new Date()), 1000);
-        setTimerId(timer_id);
+        const timer = setInterval(() => setDate(new Date()), 1000);
+//setTimerId(timer);
     }
 
     const stopDateClickHandler = () => {
@@ -112,9 +112,13 @@ function Junior() {
                     {`${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`}
                     <DateViewer date={`${date.getDay()} : ${date.getMonth()} : ${date.getFullYear()}`} show={dataViewerActive}/>
                 </div>
-                <ButtonNya onClick={dateOnClickHandler}>Время</ButtonNya>
-                <ButtonNya onClick={stopDateClickHandler}>Остановить Время</ButtonNya>
+                <ButtonNya onClick={dateOnClickHandler}>Start</ButtonNya>
+                <ButtonNya onClick={stopDateClickHandler}>Stop</ButtonNya>
                 
+            </div>
+
+            <div>
+                <PreloaderComponent />
             </div>
         </div>
     )
