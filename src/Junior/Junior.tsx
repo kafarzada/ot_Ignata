@@ -8,8 +8,9 @@ import Radio from '../Components/Common/Radio';
 import { v1 } from 'uuid';
 import { hwReducer } from '../redux/homeWorkReducer';
 import DateViewer from '../Components/DateViewer/DateViewer';
-import Preloader from '../Components/Preloader/Preloader';
 import { PreloaderComponent } from '../Components/Preloader/PreloaderContainer';
+import Range from '../Components/Common/Range/Range'
+import RangeContainer from '../Components/Common/Range/RangeContainer';
 
 
 type UserListType = {
@@ -19,7 +20,7 @@ type UserListType = {
 }
 
 function Junior() {
-    
+     
     let [editMode, setEditMode] = useState<boolean>(false)
     let [inputValue, setInputValue] = useState<string>('Кликни два раза');
     
@@ -120,6 +121,7 @@ function Junior() {
             <div>
                 <PreloaderComponent />
             </div>
+            <RangeContainer />
         </div>
     )
 }
